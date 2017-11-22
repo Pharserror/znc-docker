@@ -34,8 +34,8 @@ RUN set -x \
     && curl -fsSL "https://znc.in/releases/archive/znc-${ZNC_VERSION}.tar.gz" -o znc.tgz \
     && curl -fsSL "https://znc.in/releases/archive/znc-${ZNC_VERSION}.tar.gz.sig" -o znc.tgz.sig \
     && export GNUPGHOME="$(mktemp -d)" \
-    && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "${GPG_KEY}" \
-    && gpg --batch --verify znc.tgz.sig znc.tgz \
+#   && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "${GPG_KEY}" \
+#   && gpg --batch --verify znc.tgz.sig znc.tgz \
     && rm -rf "$GNUPGHOME" \
     && tar -zxf znc.tgz --strip-components=1 \
     && mkdir build && cd build \
